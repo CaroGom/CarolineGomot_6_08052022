@@ -1,0 +1,20 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "backend hot takes",
+  "main": "(server.js)",
+  "scripts": {
+    "test": "-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Dumbledore@DESKTOP-TJVAJA1 MINGW64 ~/Desktop/OPC/MODULE-6/CarolineGomot_6_08052022 "
+  },
+  "keywords": [
+    "test",
+    "hot",
+    "takes"
+  ],
+  "author": "Caroline Gomot",
+  "license": "UNLICENSED"
+}
