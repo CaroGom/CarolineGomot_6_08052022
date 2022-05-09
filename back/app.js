@@ -7,7 +7,9 @@ app.use(express.json());
 app.post('/api/stuff', (req, res, next) => {
     console.log(req.body);
     res.status(201).json({
-      message: 'Objet créé !'
+      message: 'Objet créé !',
+      userId: 'bcjsknopsdhcuibeujkn',
+      //token: string,
     });
   });
 
@@ -19,26 +21,50 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use('/api/stuff', (req, res, next) => {
-    const stuff = [
+app.use('/api/sauces', (req, res, next) => {
+    const sauces = [
+
         {
-            _id: 'fsjkshuijzb',
-            title: 'Mon premier Pingu',
-            description: 'Les infos de mon premier objet',
-            imageUrl: 'https://pbs.twimg.com/media/ED9ur_HWwAEcYk3.jpg',
-            price: 10,
-            userId: 'madPingu',
+          userId: 'userId1',
+          name: 'sauceName1',
+          manufacturer: 'sauceMaker1',
+          description: 'sauceDescription1',
+          mainPepper: 'mainPepper1',
+          imageUrl: 'https://site.com/img/image.jpg',
+          heat: 9,
+          likes: 12,
+          dislikes: 58,
+          usersLiked: 'Users who liked1',
+          usersDisliked: 'Users who disliked1'
         },
         {
-            _id: 'dbuqjkiledjk',
-            title: 'Mon deuxième Pingu',
-            description: 'Les infos de mon deuxième objet',
-            imageUrl: 'https://img-08.stickers.cloud/packs/710aa9ed-5ddd-4f68-82d0-6bfafe6a4960/webp/2f392421-3544-4148-9178-065417a1801e.webp',
-            price: 11,
-            userId: 'hungryPingu',
+          userId: 'userId2',
+          name: 'sauceName2',
+          manufacturer: 'sauceMaker2',
+          description: 'sauceDescription2',
+          mainPepper: 'mainPepper2',
+          imageUrl: 'https://site.com/img/image.jpg',
+          heat: 8,
+          likes: 76,
+          dislikes: 18,
+          usersLiked: 'Users who liked2',
+          usersDisliked: 'Users who disliked2'
+        },
+        {
+          userId: 'userId3',
+          name: 'sauceName3',
+          manufacturer: 'sauceMaker3',
+          description: 'sauceDescription3',
+          mainPepper: 'mainPepper3',
+          imageUrl: 'https://site.com/img/image.jpg',
+          heat: 4,
+          likes: 69,
+          dislikes: 2,
+          usersLiked: 'Users who liked3',
+          usersDisliked: 'Users who disliked3'
         }
     ];
-    res.status(200).json(stuff);
+    res.status(200).json(sauces);
 });
 
 module.exports = app;

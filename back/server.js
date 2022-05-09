@@ -8,7 +8,7 @@ const normalizePort = val => {
     if(isNaN(port)){
         return val;
     }
-    if (port >= O){
+    if (port >= 0){
         return port;
     }
     return false;
