@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://PiiquanteAdmin:PiiquanteDB@cluster0.6byal.mongodb.net/PiiquanteDB?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://PiiquanteAdmin:Piiquante.DB@cluster0.6byal.mongodb.net/PiiquanteDB?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
