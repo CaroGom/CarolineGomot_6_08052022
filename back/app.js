@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express');
 
+const UserRoutes = require('./routes/User');
 const SauceRoutes = require('./routes/Sauce');
 
 //code to connect file to MongoDB
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use ('api/sauce', SauceRoutes)
+app.use ('/api/sauce', SauceRoutes);
+app.use ('/api/auth', UserRoutes);
 
 module.exports = app;
