@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express');
+const path = require('path');
 
 const UserRoutes = require('./routes/User');
 const SauceRoutes = require('./routes/Sauce');
@@ -19,6 +20,9 @@ const app = express();
   
 //setting up POST route
 app.use(express.json());
+
+//setting up image request management
+app.use('/images', express.static(path.join(__dirname, 'images')))
 
 
 //setting up GET route
