@@ -26,7 +26,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')))
 //setting up GET route by adding headers 
 app.use((req, res, next) => {
   //allowing the website I want 
-    res.setHeader('Access-Control-Allow-Origin', 'htpp://localhost:4200');
+    res.setHeader('Access-Control-Allow-Origin', '*');
   //requesting headers I wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
   //requesting methods of requests I wish to allow
