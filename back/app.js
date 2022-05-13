@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
 
+//setting up routes to user and sauce
 const UserRoutes = require('./routes/User');
 const SauceRoutes = require('./routes/Sauce');
 
@@ -15,9 +16,6 @@ mongoose.connect('mongodb+srv://PiiquanteAdmin:Piiquante.DB@cluster0.6byal.mongo
 
 const app = express();
 
-
-
-  
 //setting up POST route
 app.use(express.json());
 
@@ -25,10 +23,13 @@ app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'images')))
 
 
-//setting up GET route
+//setting up GET route by adding headers 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+  //allowing the website I want 
+    res.setHeader('Access-Control-Allow-Origin', 'htpp://localhost:4200');
+  //requesting headers I wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  //requesting methods of requests I wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
   });

@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
         //taking userId from decodedToken
         const userId = decodedToken.userId;
         //assign userId as an attribute to request
-        req.userId = userId;
+        req.auth = {userId: userId};
         //verification that decoded token matches reques body token
         if (req.body.userId && req.body.userId !== userId){
             throw 'Identifiant utilisateur non valable !'
