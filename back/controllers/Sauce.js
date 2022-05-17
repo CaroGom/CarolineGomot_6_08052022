@@ -12,7 +12,7 @@ exports.createSauce = (req, res, next) => {
       const sauce = new Sauce({
         ...sauceObject,
         //setting the img url using path that leads to images with their automatically generated name
-        imageUrl: `${req.protocol}://${req.get('host')}/images${req.file.filename}`,
+        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
         likes: 0,
         dislikes: 0,
         usersLiked: [],

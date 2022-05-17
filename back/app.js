@@ -37,25 +37,7 @@ app.use((req, res, next) => {
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
-app.use('/api/sauces', (req, res, next) => {
-  const sauces = [
-    {
-      userId: 'user1',
-      name: 'TestUser',
-      manufacturer: 'TestManufacturer',
-      description: 'TestDescription',
-      mainPepper: 'TestPepper',
-      imageUrl: 'https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg',
-      heat: 5,
-      likes: 0,
-      dislikes: 0,
-      usersLiked: 'NA',
-      usersDisliked: 'NA',
-    },
-
-  ];
-  res.status(200).json(stuff);
-});
+app.use('/api/sauces', SauceRoutes);
 //app.use ('/api/sauces', SauceRoutes);
 app.use ('/api/auth', UserRoutes);
 
