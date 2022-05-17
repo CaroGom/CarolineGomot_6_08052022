@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
 
 //setting up routes to user and sauce
 const UserRoutes = require('./routes/User');
 const SauceRoutes = require('./routes/Sauce');
+
+const app = express();
 
 //code to connect file to MongoDB
 mongoose.connect('mongodb+srv://PiiquanteAdmin:Piiquante.DB@cluster0.6byal.mongodb.net/PiiquanteDB?retryWrites=true&w=majority',
@@ -14,13 +15,10 @@ mongoose.connect('mongodb+srv://PiiquanteAdmin:Piiquante.DB@cluster0.6byal.mongo
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-const app = express();
 
 //setting up POST route
 app.use(express.json());
 
-//setting up image request management
-app.use('/images', express.static(path.join(__dirname, 'images')))
 
 
 //setting up GET route by adding headers 
@@ -34,7 +32,31 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use ('/api/sauce', SauceRoutes);
+
+//setting up image request management
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+
+app.use('/api/sauces', (req, res, next) => {
+  const sauces = [
+    {
+      userId: 'user1',
+      name: 'TestUser',
+      manufacturer: 'TestManufacturer',
+      description: 'TestDescription',
+      mainPepper: 'TestPepper',
+      imageUrl: 'https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg',
+      heat: 5,
+      likes: 0,
+      dislikes: 0,
+      usersLiked: 'NA',
+      usersDisliked: 'NA',
+    },
+
+  ];
+  res.status(200).json(stuff);
+});
+//app.use ('/api/sauces', SauceRoutes);
 app.use ('/api/auth', UserRoutes);
 
 module.exports = app;

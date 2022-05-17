@@ -16,7 +16,7 @@ const normalizePort = val => {
 };
 
 //setting up 3000 as listening port
-const port = normalizePort(process.env.PORT || 3000);
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 //error instructions for server errors

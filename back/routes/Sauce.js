@@ -9,7 +9,7 @@ const multer = require('../middleware/multer-config');
 router.post('/', auth, multer, sauceCtrl.createSauce);
 
 //get one object from Sauces
-router.get('/:id', sauceCtrl.getSauce);
+router.get('/:id', sauceCtrl.getOneSauce);
 
   //using get to display sauce array in json
 router.get('/', sauceCtrl.getAllSauces);
