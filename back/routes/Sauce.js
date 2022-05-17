@@ -5,8 +5,11 @@ const sauceCtrl = require('../controllers/Sauce');
 const auth = require('../middleware/auth');
 const multer = require('../middleware/multer-config');
 
-
+//create a Sauce object
 router.post('/', auth, multer, sauceCtrl.createSauce);
+
+//like or dislike a sauce
+router.post('/:id/like', auth, sauceCtrl.likeSauce);
 
 //get one object from Sauces
 router.get('/:id', sauceCtrl.getOneSauce);

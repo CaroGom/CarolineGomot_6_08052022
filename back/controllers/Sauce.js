@@ -44,7 +44,7 @@ exports.createSauce = (req, res, next) => {
     const sauceObject = req.file ?
     {
       ...JSON.parse(req.body.sauce),
-      imageUrl: `${req.protocol}://${req.get('host')}/images${req.file.filename}`
+      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
      } : { ...req.body };
      Sauce.findOne({_id: req.params.id})
       .then((sauce) => {
